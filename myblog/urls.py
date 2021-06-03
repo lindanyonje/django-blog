@@ -15,9 +15,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from blog.views import CategoryDelete, CategoryUpdate, MyView,CategoryList,CategoryDetail ,CategoryCreate
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include('blog.urls')),
+    path('view/',MyView.as_view()),
+    path('categories/',CategoryList.as_view(),name="category_list"),
+    path('category/detail/<pk>',CategoryDetail.as_view(),name= 'category_detail'),
+    path('create/category', CategoryCreate.as_view(),name= 'category_create'),
+    path('update/category/<pk>/',CategoryUpdate.as_view(),name='category_update'),
+    path('delete/category/<pk>/',CategoryDelete.as_view(),name='category_delete')
+
+
+
 ]
 

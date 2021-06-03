@@ -1,10 +1,255 @@
-<div class="main">
-    {% for data in dataset%}
+<!DOCTYPE html>
 
-    {{data.name}}<br>
+<html>
 
-    {{data.created_at}}<br>
+<head>
+  
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <hr/>
-     {% endfor %}
+ <title>My first webpage.</title>
+
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"></head>
+ <link rel="stylesheet"  href="main.css">
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+  <!--Navigation Bar-->
+  <nav class="navbar navbar-expand-md bg-dark navbar-dark">  
+      <a href="index.html"class="navbar-brand">Logo</a>
+
+      <button type="button" data-target="#myNavigation" class="navbar-toggler navbar-light"
+       data-toggle="collapse">
+      
+          <span class="navbar-toggler-icon"></span>
+    
+      </button>
+
+    <div class="collapse navbar-collapse" id="myNavigation">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link"href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link"href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+            <li class="nav-item"><a class="nav-link"href="contact.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link"href="gallery.html">Gallery</a></li>
+
+        </ul>
+
+    </div>
+
+  </nav>
+ 
+  <!--End Navigation Bar-->
+
+  <!--Page Content-->
+
+  
+  <div class="container-fluid page-content">
+
+
+  <!--First content-->
+
+  <div class="container-fluid ">
+
+    <div class="row  justify-content-center">
+
+       <div class="col-lg-4 col-md-4 col-sm-12 mt-5 ml-2 my-auto mx-auto">
+           <h1>Welcome to my first web page.</h1>
+           <h5 class="mb-4">This is where I tell you about myself,what Ido, and the reason why.</h5>
+
+           <a href="about.html" class="btn btn-outline-chocolate">Learn more</a>
+           <a href="portfolio.html" class="btn btn-chocolate">My portfolio</a>
+
+       </div>
+
+       <div class="col-lg-6 col-md-6 col-sm-12 my-auto mx-auto">
+
+           <img src="lindas.svg" alt="Landing page Image" class="landing-image">
+        
+       </div>
+    </div>
 </div>
+
+<!--End First Content-->
+
+<!--second content-->
+
+ <div class="container-fluid bg-dark text-chocolate">
+
+   <h2 class="text-center pt-4">What I specialize in</h2>
+   
+   <div class="row justify-content-center">
+      
+      <div class="col-lg-4 col-md-4 col-sm-12 px-5 text-center" >
+
+           <i class="fa fa-globe fa-4x mt-5"></i>
+           <h4>Web Development</h4>
+           <p class="mb-5 text-white">I help you make a mark online by
+                developing web systems. Admin dashboard, awesome landing pages.</p>
+      </div>
+
+      <div class="col-lg-4 col-md-4 col-sm-12 px-5 text-center" >
+          
+          <i class="fa fa-mobile fa-4x mt-5"></i>
+          <h4 >Mobile Development</h4>
+          <p class="mb-5 text-white"> Steal people's personal information by having them
+               download your app and sell it their data to facebook.
+             </p>
+      </div>
+
+      <div class="col-lg-4 col-md-4 col-sm-12 px-5 text-center">
+          
+          <i class="fa fa-picture-o fa-4x mt-5"></i>
+          <h4 >Graphic Design</h4>
+          <p class="mb-5 text-white" >Pictures,pictures and more pictures.
+               Stuff,stuff and more stuff.
+              We get you living through the pixels we keep giving. </p>
+
+              
+      </div>
+   </div>
+     
+  <div class="row justify-content-center ">
+
+      
+   <a href="contact.html" class="btn btn-white text-center mb-5 w-25">contact</a>
+
+  </div>
+
+   
+
+   <!--Assignent: Add an anchor tag here to link to contact.html and style it to look like a button.-->
+ </div>
+
+
+<!--End second content>-->
+
+<!--Third content-->
+
+<div class="container-fluid ">
+
+      <h2 class="text-center pt-5">Testimonials</h3>
+
+      <div class="row justify-content-center my-5">
+
+        {% for one_cat in categories %}
+      
+      <div class="col-lg-4 col-md-4 col-sm-12 px-3 text-center margin-top-small" >
+      
+          <div class="card h-100 testimonial-card">
+
+              <div class="card-body ">
+
+                  <i class="fa fa-user fa-4x mt-5 text-chocolate"></i>
+                  <h4 class="mt-3 text-chocolate">{{one_cat.name}}</h4>
+                  <p >Created on: {{one_cat.created_at}}</p>
+
+              </div>
+
+              
+          </div>
+              
+          
+      </div>
+
+      {% endfor %}
+
+      
+
+  </div>
+
+
+
+<!--End third content>-->
+
+
+<!--Fourth content-->
+
+<div class="container-fluid ">
+
+  <div class="row justify-content-center my-5">
+      
+      <div class="col-lg-4 col-md-4 col-sm-12 text-center" >
+      
+          <div class="card h-100 w-100">
+
+              <div class="card-body">
+
+                  <i class="fa fa-user fa-4x mt-5 text-chocolate"></i>
+                  <h4 class="mt-3 text-chocolate">contact me</h4>
+                  <p >Let us know if you would love to contact us directly.</p>
+
+              </div>
+
+              
+          </div>
+      </div>        
+     </div>    
+
+  </div>
+<!--Assignment: Add another section with one column and a card inside 
+  asking people if they want to contact you.-->
+
+
+
+  </div>
+  
+  
+  <!--End Fourth content-->
+
+  <!--Footer content-->
+  
+  <footer  class="footer">
+
+    <div class="container-fluid bg-dark">
+
+        <div class="row justify-content-center pt-2">
+
+            <a href= " https://www.facebook.com">
+            <i class="fa fa-facebook-square fa-3x  text-chocolate mx-3 hover-transform"></i>
+            </a>
+            
+            <a href= "https://www.twitter.com">
+                <i class="fa fa-twitter-square fa-3x  text-chocolate mx-3 hover-transform"></i>
+            </a>
+                
+            <a href= " https://www.fa-instagram.com">
+                <i class="fa fa-instagram fa-3x  text-chocolate mx-3 hover-transform"></i>
+            </a>
+            
+        </div>
+
+        <div class="row justify-content-center bg-dark text-light py-1">
+
+            © 2021 Copyright:
+            <a class="text-light" href="index.html">Myfirstwebpage.com</a>
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+  </footer>
+  
+  
+  
+  <!--End Footer content-->
+
+  <!--End Page Content-->
+
+
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+
+</html>
