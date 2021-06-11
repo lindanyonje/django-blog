@@ -1,3 +1,8 @@
+
+{% extends 'master.html' %}
+
+{% block content%}
+
 <a href= "{% url 'category_create' %}">Add Category</a>
 
 <ul>
@@ -16,3 +21,7 @@
     {%endfor%}
 
 </ul>
+
+
+
+{% endblock content %}
