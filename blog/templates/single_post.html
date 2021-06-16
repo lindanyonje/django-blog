@@ -1,9 +1,9 @@
 <div class="card" style="width: 18rem;">
     <img class="card-img-top" src="" alt="Card image cap">
     <div class="card-body">
-      <h5 class="card-title">Post Title</h5>
-      <p class="card-text">This is my post description.</p>
-      <p>Created at</p>
-      <a href="#" class="btn btn-primary">Read Now</a>
+      <h5 class="card-title">{{object.title}}</h5>
+      <p class="card-text">{{object.post}}</p>
+      <p>{{object.created_at}}</p>
+      <a href="{% url 'post_detail' object.id %}" class="btn btn-primary">Read Now</a>
     </div>
   </div>

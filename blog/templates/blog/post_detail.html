@@ -1,0 +1,16 @@
+
+{% extends 'master.html' %}
+
+
+{% block content%}
+
+<h1>{{object.title}}</h1>
+<p>{{object.post}}</P>
+<p>{{object.created_at}}</P>
+
+<a href= "{% url 'post_update' object.id %}">Edit details</a>
+<a href= "{% url 'post_delete' object.id %}">Delete details</a>    
+
+
+
+{% endblock content %}

@@ -1,7 +1,7 @@
 from django import forms
 from django.shortcuts import render
 from django.http import HttpResponse
-from.models import Category
+from.models import Category, Feedback, Post,Tag
 from django.views import View
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
@@ -21,7 +21,8 @@ def home(request):
 
     #add dictionary during initiliasation
 
-    context["categories"]= Category.objects.all()[:2]
+    context["objects"]= Post.objects.all()[:4]
+    
     return render(request,"home.html",context)
 
 class MyView(View):
@@ -81,3 +82,85 @@ def posts(request):
     context= {}
     
     return render(request, 'blog/post_list.html',context)
+
+class PostCreate(CreateView):
+
+    model = Post
+    fields = ['title','post','category_id','user_id','likes','views']
+    success_url = '/posts'
+
+
+class PostList(ListView):
+
+    model = Post
+
+class PostUpdate(UpdateView):
+
+    model = Post
+    fields = ['title','post','category_id','user_id','likes','views']
+    success_url = '/posts'
+    
+    
+class PostDetail(DetailView):
+
+    model = Post
+
+class PostDelete(DeleteView):
+
+    model = Post
+    success_url = '/posts'
+
+class FeedbackCreate(CreateView):
+
+    model = Feedback
+    fields = ['message','user_name','user_email',]
+    success_url = '/feedback'
+
+class FeedbackList(ListView):
+
+    model = Feedback
+
+class FeedbackUpdate(UpdateView):
+
+    model = Feedback
+    fields = ['message','user_name','user_email',]
+    success_url = '/feedback'
+    
+    
+class FeedbackDetail(DetailView):
+
+    model = Feedback
+
+class FeedbackDelete(DeleteView):
+
+    model = Feedback
+    success_url = '/feedback'
+
+   
+class TagCreate(CreateView):
+
+    model = Tag
+    fields = ['name','created_at','updated_at',]
+    success_url = '/tag'
+
+class TagList(ListView):
+
+    model = Tag
+
+class TagUpdate(UpdateView):
+
+    model = Tag
+    fields = ['name','created_at','updated_at',]
+    success_url = '/tag'
+    
+    
+class TagDetail(DetailView):
+
+    model = Tag
+
+class TagDelete(DeleteView):
+
+    model = Feedback
+    success_url = '/tag'
+
+   

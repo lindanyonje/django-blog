@@ -1,10 +1,82 @@
 {% extends 'master.html' %}
 
+{% load static %}
 
-{% block content%}
 
-<h1>This is my home page.</h1>
+{% block content %}
+
+<div class="container-fluid">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-6 col-md-6 col-sm-12 mt-5 pt-5">
+
+            <h1 class="mt-5 mx-5 text-aqua">My blog is awesome</h1>
+            <h6 class="mt-3 mx-5 pr-5">And so am I. Sometimes though
+                it doesn't feel like it. But then I throw on my
+                fancy shoes and awesome hair then go have a nice day.
+            </h6>
+
+
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-12 mt-5">
+
+            <img src="{% static 'image.jpg' %}" alt="Landing page Image" style="width:500px;
+            height:500px;" >
+
+        </div>
+
+
+    </div>
+
+    <div class="row justify-content-center mt-5 mb-3">
+
+            <h3 class="text-aqua">Recent Posts</h3>
+
+    </div>
+
+    <div class="row justify-content-center">
+
+        {% for object in objects %}
+         <div class="col-lg-3 col-md-6 col-sm-12">
+
+            {% include 'single_post.html' %}
+
+         </div>
+        
+        {% endfor %} 
+
+
+
+
+    </div>
+
+
+    <div class="row justify-content-center my-5 bg-dark text-light">
+
+        <div class="col-lg-12 col-md-12 col-sm-12 mt-5 text-center">
+
+            <h3 class="text-center ">Say hi</a>
+
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 mt-2 text-center mb-5">
+
+            <a href="{% url 'feedback_create' %}" class="btn btn-light mb-5 w-25">Contact Me</a>
+
+        </div>
+
+    </div>
+
+
+</div>
+
 
 
 
 {% endblock content %}
+
+<!-- <h1 class="text-aqua">This is my home page.</h1> -->
+
+<!-- <img src="{% static 'image.jpg' %}" alt= "what's popping"> -->
