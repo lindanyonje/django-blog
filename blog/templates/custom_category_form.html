@@ -1,0 +1,40 @@
+
+{% extends 'master.html' %}
+
+{% block content%}
+
+
+<form method="POST" enctype= "multipart/form-data" class="mb-5">
+
+    <!--Security token-->
+
+    {% csrf_token %}
+
+    <!--using django's formset-->
+
+    <div class= "fieldWrapper">
+
+        {{form.name.erors}}
+
+        <label for= "{{form.name.id_for_label}}">Name</label>
+
+        {{form.name}}
+
+    </div>
+
+    <div class="fieldWrapper">
+
+        {{form.parent_id.errors}}
+
+        <babel for="{{form.parent_id.id_for_label}}">Parent Category</babel>
+
+        {{form.parent_id}}
+
+    </div>
+
+    <input class="btn btn-primary mb-5" type= "submit" value="Save"> 
+    
+</form>
+
+
+{% endblock content %}

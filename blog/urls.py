@@ -32,6 +32,8 @@ urlpatterns=[
     path('tag/',TagList.as_view(),name='tag_list'),
     path('create/tag',TagCreate.as_view(),name='tag_create'),
     path('detail/tag/<pk>/',TagDetail.as_view(),name='tag_detail'),
+    path('model/form/category',views.formCategory),
+    path('add/form/comment',views.add_comment),
 
 
 

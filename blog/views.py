@@ -7,7 +7,7 @@ from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
 from django.urls import reverse
-from .forms import SimpleForm
+from .forms import CategoryForm, SimpleForm,CommentForm
 
 
 # Create your views here.
@@ -163,4 +163,36 @@ class TagDelete(DeleteView):
     model = Feedback
     success_url = '/tag'
 
-   
+def formCategory(request):
+    context={}
+
+    form= CategoryForm(request.POST)
+
+    if form.is_valid():
+        form.save()
+
+    context['form']=form  
+
+    return render(request, "custom_category_form.html",context)  
+
+def add_comment(request):
+    #check if request is post
+    if request.method== "POST":
+
+        #carry out your operations
+
+       form= CommentForm(request.POST)
+       #request.POSTfillsnin the data from the forend into our variable 'form'
+       if form.is_valid():
+           comment= form.cleaned_data['content']
+           #variable_name=form.cleaned_data['field_name']  syntax
+
+       return HttpResponse(comment)
+
+    else:   
+        #tell user request is wrong
+
+        context={}
+        form= CommentForm()
+        context['form']=form
+        return render(request, "comment.html",context)

@@ -3,19 +3,146 @@
 {% block content%}
 
 
-<form method="POST" enctype= "multipart/form-data">
 
-    <!--Security token-->
 
-    {% csrf_token %}
+<div  class="container-fluid page-content">
 
-    <!--using django's formset-->
 
-    {{form.as_p}}
+    <!--Form Content-->
 
-    <input type= "submit" value="Submit"> 
-    
-</form>
+    <div class="container-fluid ">
+
+
+        <h2 class="text-center text-chocolate pt-5">Contact Me</h3>
+
+        <div class="row justify-content-center my-5">
+
+            <div class="col-lg-4 col-md-4 col-sm-12 px-3 text-center margin-top-small">
+
+                <div class="card h-100 testimonial-card">
+
+                    <div class="card-body">
+
+                        <i class="fa fa-phone fa-3x mt-5 text-chocolate"></i>
+                        <h5 class="mt-3">0725163354</h4>
+                       
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-12 px-3 text-center margin-top-small">
+
+                <div class="card h-100 testimonial-card">
+
+                    <div class="card-body">
+
+                        <i class="fa fa-envelope fa-3x mt-5 text-chocolate"></i>
+                        <h5 class="mt-3">lindaatieno24@gmail.com</h4>
+                        
+
+                    </div>
+
+
+                </div>
+                
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-12 px-3 text-center  margin-top-small">
+             
+                <div class="card h-100 testimonial-card">
+
+                    <div class="card-body">
+
+                        <i class="fa fa-address-card fa-3x mt-5"></i>
+                        <h5 class="mt-3">Juja Nairobi, kenya.</h4>
+                        
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-6 col-md-6 col-sm-12">
+
+                <div class="card">
+
+                    <div class="card-body">
+
+                        <h2 class="text-center text-chocolate mb-3">Send me a message</h3>
+
+
+                            <form method="POST" enctype= "multipart/form-data">
+
+                                <!--Security token-->
+                            
+                                {% csrf_token %}
+                            
+                                <!--using django's formset-->
+
+                                <div class= "fieldWrapper">
+
+                                    {{form.message.erors}}
+                            
+                                    <label for= "{{form.message.id_for_label}}">Message</label>
+                            
+                                    {{form.message}}
+                            
+                                </div>
+                            
+                                <div class= "fieldWrapper">
+
+                                    {{form.user_name.erors}}
+                            
+                                    <label for= "{{form.user_name.id_for_label}}">User Name</label>
+                            
+                                    {{form.user_name}}
+                            
+                                </div>
+                            
+                                <div class="fieldWrapper">
+                            
+                                    {{form.user_email.errors}}
+                            
+                                    <babel for="{{form.user_email.id_for_label}}">User Email</babel>
+                            
+                                    {{form.user_email}}
+                            
+                                </div>
+                            
+                                <input class="btn btn-primary mb-5" type= "submit" value="Save"> 
+                                }
+                            
+                                <input type= "submit" value="Submit"> 
+                                
+                            </form>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+
+    <!--End form content-->
+
+
+    </div>
+
 
 
 {% endblock content %}
